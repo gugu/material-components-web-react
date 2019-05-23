@@ -143,6 +143,9 @@ export default class Select<T extends HTMLElement = HTMLSelectElement>
     if (this.state.foundation && this.state.value !== prevState.value) {
       this.state.foundation.handleChange(true);
     }
+    if (this.state.foundation && this.props.disabled !== prevProps.disabled) {
+      this.state.foundation.setDisabled(this.props.disabled!);
+    }
     if (this.state.helperTextFoundation !== prevState.helperTextFoundation
       || this.state.iconFoundation !== prevState.iconFoundation) {
       this.destroyFoundation();
